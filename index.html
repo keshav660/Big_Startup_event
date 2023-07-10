@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>College Startup Event</title>
+  <style>
+    body {
+      background-image: url('image.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      color: #19fb00;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: bold;
+      margin-top: 100px;
+    }
+
+    .timer {
+      color: #00f;
+      font-size: 24px;
+    }
+
+    .notice {
+      margin-top: 50px;
+      font-size: 18px;
+    }
+
+    .coupon-code {
+      margin-top: 50px;
+    }
+
+    .coupon-code input[type="text"] {
+      padding: 5px;
+    }
+
+    .coupon-code input[type="button"] {
+      padding: 5px 10px;
+    }
+
+    .registration-fee {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+
+    .register-button {
+      margin-top: 50px;
+      padding: 10px 20px;
+      font-size: 24px;
+      background-color: #f00;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Big College Startup Event</h1>
+  <div id="timer" class="timer"></div>
+  <script>
+    var minutes = 10;
+    var seconds = 0;
+
+    function countdown() {
+      var timerElement = document.getElementById("timer");
+      timerElement.innerHTML = minutes + "m " + seconds + "s";
+
+      if (minutes === 0 && seconds === 0) {
+        // Close the website
+        window.close();
+      } else {
+        if (seconds === 0) {
+          minutes--;
+          seconds = 59;
+        } else {
+          seconds--;
+        }
+        setTimeout(countdown, 1000);
+      }
+    }
+
+    countdown();
+  </script>
+  <div class="notice">
+    <p>APNA REGISTRATION JLDI SE KRVAYIYE VRNA AAJ KE BEST KNOWLEDGE SE HATH DHO BETHOGE</p>
+  </div>
+  <div class="coupon-code">
+    <input type="text" id="couponCode" placeholder="Enter coupon code">
+    <input type="button" value="Activate" onclick="activateCoupon()">
+  </div>
+  <div class="registration-fee">
+    <p>Registration fee: <span id="fee">999</span> rupees</p>
+  </div>
+  <div class="register-button">
+    <button onclick="register()">Register</button>
+  </div>
+  <script>
+    function activateCoupon() {
+      var couponCode = document.getElementById("couponCode").value;
+      var feeElement = document.getElementById("fee");
+
+      if (couponCode === "KESHAV660") {
+        feeElement.innerHTML = "0";
+      } else {
+        alert("Please use a valid coupon code or pay 999 rupees.");
+      }
+    }
+
+    function register() {
+      var feeElement = document.getElementById("fee");
+      var fee = feeElement.innerHTML;
+
+      if (fee === "0") {
+        window.location.href = "https://surveyheart.com/form/64a7fdae3d6e585e545b2f4e";
+      } else {
+        alert("Please pay 999 rupees or use a coupon code.");
+      }
+    }
+  </script>
+</body>
+</html>
